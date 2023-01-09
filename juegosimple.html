@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, papel o tijera</title>
+    <script>
+        let puntosJugador = 0
+        let puntosPc = 0
+        let ganador = false
+        let eleccionJugador = ""
+        let eleccionPc = ""
+        
+        while(ganador === false){
+            let jugador = prompt("Elija : \n 1.Piedra \n 2.Papel \n 3.Tijera ")
+            let pc = Math.floor(Math.random()*(4-1)+1)
+
+            switch(jugador){
+                case '1':
+                    eleccionJugador="Elegiste Piedra"
+                    break
+                case '2':
+                    eleccionJugador="Elegiste Papel"
+                    break
+                case '3':
+                    eleccionJugador="Elegiste Tijera"
+                    break
+            }
+
+            switch(pc){
+                case 1:
+                    eleccionPc="La computadora eligió Piedra"
+                    break
+                case 2:
+                    eleccionPc="La computadora eligió Papel"
+                    break
+                case 3:
+                    eleccionPc="La computadora eligió Tijera"
+                    break
+            }
+
+            switch(jugador - pc){
+                case 0 :
+                    alert(eleccionJugador+" \n"+eleccionPc+"\n Empate, vuelve a jugar \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc )
+                    break
+                case 1 :
+                    puntosJugador++
+                    alert(eleccionJugador+" \n"+eleccionPc+"\n Ganaste !! 😀\n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
+                    break
+                case -2:
+                    puntosJugador++
+                    alert(eleccionJugador+" \n"+eleccionPc+"\n Ganaste !! 😀 \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
+                    break
+                default :
+                    puntosPc++
+                    alert(eleccionJugador+" \n"+eleccionPc+" \n Perdiste 😥 \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
+            }
+            if(puntosJugador === 3 || puntosPc === 3){
+                ganador = true
+            }
+        }
+
+        if(puntosJugador === 3){
+            alert("GANASTE !! 🤩")
+        }else{
+            alert("PERDISTE 😭😏")
+        }
+
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>
