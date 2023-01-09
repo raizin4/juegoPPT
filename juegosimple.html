@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedra, papel o tijera</title>
     <script>
+
+        function aleatorio (min,max){
+            return Math.floor(Math.random()*(max-min+1)+min)
+        }
+        
         let puntosJugador = 0
         let puntosPc = 0
         let ganador = false
@@ -14,7 +19,7 @@
         
         while(ganador === false){
             let jugador = prompt("Elija : \n 1.Piedra \n 2.Papel \n 3.Tijera ")
-            let pc = Math.floor(Math.random()*(4-1)+1)
+            let pc = aleatorio(3,1)
 
             switch(jugador){
                 case '1':
