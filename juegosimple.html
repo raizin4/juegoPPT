@@ -21,47 +21,36 @@
             } else if(jugada == 3){
                 eleccion = "Eligió ✂"
             }
+            else{
+                eleccion="ELIGIO INCORRECTAMENTE"
+            }
 
             return eleccion
         }
 
-        let puntosJugador = 0
-        let puntosPc = 0
-        let ganador = false;
-        
-        while(ganador === false){
+        function jugar(player,computer){
+            let mensaje =""
+            switch(player - computer){ 
+                case 0 :
+                    mensaje = "Empate, vuelve a jugar " 
+                    break
+                case 1 :
+                    mensaje = " GANASTE !! 😀 "
+                    break
+                case -2:
+                    mensaje = " GANASTE !! 😀 "
+                    break
+                default :
+                    mensaje = " PERDISTE 😥😏 "
+            }
+            return mensaje
+        }
+
             let jugador = Number(prompt("Elija un número : \n 1. Piedra \n 2. Papel \n 3. Tijera "))
             let pc = aleatorio(4,1)
 
             alert(" Usted : "+eleccion(jugador)+"\n La PC : "+eleccion(pc))
-            
-
-            switch(jugador - pc){
-                case 0 :
-                    alert("Empate, vuelve a jugar \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc )
-                    break
-                case 1 :
-                    puntosJugador++
-                    alert("Ganaste !! 😀\n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
-                    break
-                case -2:
-                    puntosJugador++
-                    alert("Ganaste !! 😀 \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
-                    break
-                default :
-                    puntosPc++
-                    alert("Perdiste 😥 \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
-            }
-            if(puntosJugador === 3 || puntosPc === 3){
-                ganador = true
-            }
-        }
-
-        if(puntosJugador === 3){
-            alert("GANASTE !! 🤩")
-        }else{
-            alert("PERDISTE 😭😏")
-        }
+            alert(jugar(jugador,pc))
 
 
     </script>
