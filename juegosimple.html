@@ -7,59 +7,50 @@
     <title>Piedra, papel o tijera</title>
     <script>
 
-        function aleatorio (min,max){
-            return Math.floor(Math.random()*(max-min+1)+min)
+        function aleatorio(min,max){
+            return Math.floor(Math.random()*(max - min) + min)
         }
-        
+
+        function eleccion(jugada){
+            let eleccion =""
+
+            if(jugada == 1 ){
+                eleccion = "Eligió 🥌"
+            } else if (jugada == 2 ){
+                eleccion = "Eligió 📃"
+            } else if(jugada == 3){
+                eleccion = "Eligió ✂"
+            }
+
+            return eleccion
+        }
+
         let puntosJugador = 0
         let puntosPc = 0
-        let ganador = false
-        let eleccionJugador = ""
-        let eleccionPc = ""
+        let ganador = false;
         
         while(ganador === false){
-            let jugador = prompt("Elija : \n 1.Piedra \n 2.Papel \n 3.Tijera ")
-            let pc = aleatorio(3,1)
+            let jugador = Number(prompt("Elija un número : \n 1. Piedra \n 2. Papel \n 3. Tijera "))
+            let pc = aleatorio(4,1)
 
-            switch(jugador){
-                case '1':
-                    eleccionJugador="Elegiste Piedra"
-                    break
-                case '2':
-                    eleccionJugador="Elegiste Papel"
-                    break
-                case '3':
-                    eleccionJugador="Elegiste Tijera"
-                    break
-            }
-
-            switch(pc){
-                case 1:
-                    eleccionPc="La computadora eligió Piedra"
-                    break
-                case 2:
-                    eleccionPc="La computadora eligió Papel"
-                    break
-                case 3:
-                    eleccionPc="La computadora eligió Tijera"
-                    break
-            }
+            alert(" Usted : "+eleccion(jugador)+"\n La PC : "+eleccion(pc))
+            
 
             switch(jugador - pc){
                 case 0 :
-                    alert(eleccionJugador+" \n"+eleccionPc+"\n Empate, vuelve a jugar \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc )
+                    alert("Empate, vuelve a jugar \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc )
                     break
                 case 1 :
                     puntosJugador++
-                    alert(eleccionJugador+" \n"+eleccionPc+"\n Ganaste !! 😀\n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
+                    alert("Ganaste !! 😀\n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
                     break
                 case -2:
                     puntosJugador++
-                    alert(eleccionJugador+" \n"+eleccionPc+"\n Ganaste !! 😀 \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
+                    alert("Ganaste !! 😀 \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
                     break
                 default :
                     puntosPc++
-                    alert(eleccionJugador+" \n"+eleccionPc+" \n Perdiste 😥 \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
+                    alert("Perdiste 😥 \n Puntaje Jugador : "+puntosJugador+" \n Puntaje PC : "+puntosPc)
             }
             if(puntosJugador === 3 || puntosPc === 3){
                 ganador = true
